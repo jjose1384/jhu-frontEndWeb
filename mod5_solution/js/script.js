@@ -167,7 +167,7 @@ function chooseRandomCategory (categories) {
 
 // returns a random number between 1 and 5 inclusive
 function generateRandomNumberBetween1And5(){
-  return Math.ceil(Math.random() * 5);
+  return Math.floor(Math.random() * 5)+1;
 }
 
 
@@ -189,15 +189,11 @@ dc.loadAboutSnippet = function () {
       
       var rating = generateRandomNumberBetween1And5();
       console.log(rating);
-      
       for (var i = 1; i < 6; i++){
-        console.log(i + " " + rating);
         if (i <= rating){
-          aboutHtml = insertProperty(aboutHtml, i, "");
-          console.log('a');
+          aboutHtml = insertProperty(aboutHtml, "_"+i, "");
         } else {
-          aboutHtml = insertProperty(aboutHtml, i, "-o");
-          console.log('b');
+          aboutHtml = insertProperty(aboutHtml, "_"+i, "-o");
         }
       }
 
