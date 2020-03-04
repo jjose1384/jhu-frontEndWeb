@@ -188,7 +188,6 @@ dc.loadAboutSnippet = function () {
       switchAboutToActive();
       
       var rating = generateRandomNumberBetween1And5();
-      console.log(rating);
       for (var i = 1; i < 6; i++){
         if (i <= rating){
           aboutHtml = insertProperty(aboutHtml, "_"+i, "");
@@ -197,7 +196,7 @@ dc.loadAboutSnippet = function () {
         }
       }
 
-      insertHtml("#main-content", aboutHtml);
+      insertHtml("#main-content", aboutHtml+rating+"-star rating");
     },
     false); 
 };
