@@ -1,0 +1,12 @@
+<div style="clear:both">
+	<h3>Menu Items: (Name, Short name, Description)</h3>
+	<ul>
+		<li ng-repeat="foundItem in menu.foundMenuItems">
+			{{foundItem.name}}, {{foundItem.short_name}}, {{foundItem.description}}
+			<button ng-click="menu.onRemove({index: $index});">
+				Don't want this one!
+			</button>
+		</li>
+	</ul>
+</div>
+<span ng-if="menu.foundMenuItems.length == 0" >Nothing found </span>
