@@ -27,7 +27,6 @@ function MenuDataService($http, ApiBasePath) {
         category: categoryShortName
       }
     });
-
     return response;
   };
 }
