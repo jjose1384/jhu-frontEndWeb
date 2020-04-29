@@ -1,0 +1,69 @@
+<div class="login">
+  <form name='signupForm' novalidate>
+    <h1 class="text-center">Sign Up</h1>
+    <div>
+      <div class="form-group">
+        <label>First Name:</label>
+        <input class="form-control" type="text"
+          name="firstName" ng-model="signupCtrl.myinfo.firstName"
+          required />
+        <span ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched"
+          style="color:yellow">
+          First Name is required.
+          <br/>
+        </span>
+        <br/>
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label>
+        <input class="form-control" type="text" 
+          name="lastName" ng-model="signupCtrl.myinfo.lastName"
+          required/>
+        <span ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched"
+          style="color:yellow">
+          Last Name is required.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Email Address:</label>
+        <input class="form-control" type="email" 
+          name="email" ng-model="signupCtrl.myinfo.email"
+          required/>
+        <span ng-if="(signupForm.email.$error.required || signupForm.email.$invalid) && 
+          signupForm.email.$touched" style="color:yellow">
+          Email is required and must be in handle@domain format.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input class="form-control" type="text" 
+          name="phone" ng-model="signupCtrl.myinfo.phone"
+          required 
+          pattern="(\d{3})-(\d{3})-(\d{4})"/>
+        <span ng-if="(signupForm.phone.$error.required || signupForm.phone.$invalid) && 
+          signupForm.phone.$touched" style="color:yellow">
+          Phone number is required and must be in ###-###-#### format.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Favorite Menu Item Number:</label>
+        <input class="form-control" type="text" 
+          name="favorite" ng-model="signupCtrl.myinfo.favorite" required validate/>
+        <span ng-if="(signupForm.favorite.$error.required || signupForm.favorite.$error.validate)
+          && signupForm.favorite.$touched" style="color:yellow">
+          No such menu number exists.
+        </span>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" ng-click="signupCtrl.submit()" 
+        ng-disabled="signupForm.$invalid">
+          Submit
+        </button>
+        <br/><br/>
+        <span ng-if="signupCtrl.myinfo.signedUp == true">
+          Your information has been saved.
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
